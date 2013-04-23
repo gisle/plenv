@@ -425,7 +425,7 @@ sub rehash {
 
         open my $fh, '>', $shimbin or die "$shimbin: $!";
         my $cmd = do {
-            if ($bin eq 'cpanm') {
+            if ($bin eq 'cpanm' || $bin eq 'ppm') {
                 join("\n",
                     sprintf(q{"%s" exec "$program" "$@"}, File::Spec->rel2abs($0)),
                     sprintf(q{"%s" rehash}, File::Spec->rel2abs($0))
