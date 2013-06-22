@@ -418,7 +418,7 @@ sub rehash {
     mkpath("$PLENV_HOME/shims");
 
     my %seen;
-    for my $bin (map { basename($_) } grep { -x $_ } <$PLENV_HOME/versions/*/bin/*>) {
+    for my $bin (map { basename($_) } grep { -x $_ } <$PLENV_HOME/versions/*/bin/* $PLENV_HOME/versions/*/site/bin/*>) {
         next if $seen{$bin}++;
 
         my $shimbin = File::Spec->catfile($PLENV_HOME, 'shims', $bin);
